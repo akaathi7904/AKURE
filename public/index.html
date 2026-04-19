@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="AKURE – Premium natural products rooted in farming and authenticity. Created by nature, perfected by AKURE." />
+  <title>AKURE – Created by nature, perfected by AKURE</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <link rel="stylesheet" href="/css/global.css?v=1776093859185" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <!-- Env config injected by server -->
+  <script>window.__AKURE_ENV__ = { SUPABASE_URL: 'https://ldlxruqfqgvvclwwjfgh.supabase.co', SUPABASE_ANON: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkbHhydXFmcWd2dmNsd3dqZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzAzMDUsImV4cCI6MjA5MTYwNjMwNX0.iWLX17xU153PxozUAQ2ZpvfzCzrzSnrfOsCNYCm8-JY' };</script>
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-logo">AKURE</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__logo" style="display:flex; align-items:center;"><img src="/images/logo-bg.png" alt="AKURE" style="height: 48px; width: auto; transform: scale(3.5); transform-origin: left center;" /></a>
+      <div class="navbar__links">
+        <a href="/">Home</a>
+        <a href="/shop.html">Shop</a>
+        <a href="#farm-section">Our Story</a>
+      </div>
+      <div class="navbar__actions">
+        <a href="/login.html" id="nav-auth-link"
+          style="font-size:0.82rem;font-weight:600;letter-spacing:0.04em;">Login</a>
+        <a href="/cart.html" class="navbar__cart-btn" aria-label="Cart">
+          🛒
+          <span class="cart-badge" aria-live="polite">0</span>
+        </a>
+        <button class="navbar__hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar__mobile" role="menu">
+    <a href="/">Home</a>
+    <a href="/shop.html">Shop</a>
+    <a href="#farm-section">Our Story</a>
+    <a href="/login.html">Account</a>
+    <a href="/cart.html">🛒 Cart</a>
+  </div>
+
+  <main>
+    <!-- ── Hero ── -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__bg"></div>
+      <div class="hero__content container">
+        <span class="section-label">Created by nature, perfected by AKURE</span>
+        <h1>Nature's Finest,<br />Crafted with Care</h1>
+        <p class="hero__subtitle">AKURE brings you premium natural products harvested from trusted farms — pure, potent,
+          and beautifully made.</p>
+        <div class="hero__actions">
+          <a href="/shop.html" class="btn btn--gold btn--lg">Explore Collection</a>
+          <a href="#farm-section" class="btn btn--outline btn--lg">Our Story</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat"><span class="hero__stat-num">100%</span><span>Natural</span></div>
+          <div class="hero__stat"><span class="hero__stat-num">50+</span><span>Products</span></div>
+          <div class="hero__stat"><span class="hero__stat-num">10K+</span><span>Happy Customers</span></div>
+        </div>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ── Features Strip ── -->
+    <section class="features-strip section--sm" aria-label="Brand promises">
+      <div class="container">
+        <div class="features-strip__grid">
+          <div class="feature-item">
+            <span class="feature-item__icon">🌱</span>
+            <h4>Farm Sourced</h4>
+            <p>Directly from trusted organic farms</p>
+          </div>
+          <div class="feature-item">
+            <span class="feature-item__icon">🔬</span>
+            <h4>Lab Tested</h4>
+            <p>Purity & quality verified every batch</p>
+          </div>
+          <div class="feature-item">
+            <span class="feature-item__icon">✋</span>
+            <h4>Handcrafted</h4>
+            <p>Small-batch artisanal production</p>
+          </div>
+          <div class="feature-item">
+            <span class="feature-item__icon">🌍</span>
+            <h4>Sustainable</h4>
+            <p>Eco-conscious from soil to shelf</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Featured Products ── -->
+    <section class="section" aria-label="Featured products">
+      <div class="container">
+        <div class="text-center mb-8">
+          <span class="section-label">Curated Selection</span>
+          <h2>Featured Products</h2>
+          <div class="divider divider--center"></div>
+        </div>
+        <div id="featured-products" class="product-grid" aria-live="polite"></div>
+        <div class="text-center mt-8">
+          <a href="/shop.html" class="btn btn--outline">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── From Farm to Product ── -->
+    <section class="farm-section section" id="farm-section" aria-label="From Farm to Product">
+      <div class="container">
+        <div class="farm-section__inner">
+          <div class="farm-section__text">
+            <span class="section-label">Our Journey</span>
+            <h2>From Farm<br />to Product</h2>
+            <div class="divider"></div>
+            <p>Every AKURE product begins life in the rich soil of carefully selected farms. We partner with expert
+              farmers who share our deep respect for the land — no shortcuts, no compromises.</p>
+            <div class="farm-steps">
+              <div class="farm-step">
+                <div class="farm-step__num">01</div>
+                <div>
+                  <h4>Seed to Harvest</h4>
+                  <p>Organic cultivation with seasonal rhythms, free from synthetic chemicals.</p>
+                </div>
+              </div>
+              <div class="farm-step">
+                <div class="farm-step__num">02</div>
+                <div>
+                  <h4>Cold-Press Extraction</h4>
+                  <p>Slow, gentle processing preserves every last nutrient and natural benefit.</p>
+                </div>
+              </div>
+              <div class="farm-step">
+                <div class="farm-step__num">03</div>
+                <div>
+                  <h4>Quality Verified</h4>
+                  <p>Third-party lab certification ensures what's on the label is in the bottle.</p>
+                </div>
+              </div>
+              <div class="farm-step">
+                <div class="farm-step__num">04</div>
+                <div>
+                  <h4>To Your Door</h4>
+                  <p>Eco-friendly packaging, delivered fresh from our facility to you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="farm-section__visual" aria-hidden="true">
+            <div class="farm-visual-grid">
+              <div class="farm-img farm-img--large">🌿</div>
+              <div class="farm-img">🌾</div>
+              <div class="farm-img">🫙</div>
+              <div class="farm-img">✨</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Testimonials ── -->
+    <section class="section" aria-label="Customer reviews">
+      <div class="container">
+        <div class="text-center mb-8">
+          <span class="section-label">Voices We Love</span>
+          <h2>What Our Customers Say</h2>
+          <div class="divider divider--center"></div>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p>"AKURE's cold-pressed oils have transformed my skincare routine. The quality is unmatched."</p>
+            <div class="testimonial-card__author">— Priya M., Mumbai</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p>"Ordered the limited batch wild honey — it sold out fast and I see why. Absolutely pure."</p>
+            <div class="testimonial-card__author">— Arjun T., Bangalore</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars">★★★★★</div>
+            <p>"Finally a brand I trust completely. Their 'farm to product' promise is real — you can taste it."</p>
+            <div class="testimonial-card__author">— Sneha R., Pune</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Newsletter ── -->
+    <section class="newsletter section--sm" aria-label="Newsletter">
+      <div class="container">
+        <div class="newsletter__inner">
+          <div class="newsletter__text">
+            <span class="section-label">Stay in the Loop</span>
+            <h2>Join the AKURE Circle</h2>
+            <p>Early access to limited batches, new launches, and exclusive offers — delivered to your inbox.</p>
+          </div>
+          <form class="newsletter__form" id="newsletter-form" novalidate>
+            <div class="newsletter__input-wrap">
+              <input type="email" placeholder="Your email address" class="form-control" id="newsletter-email"
+                autocomplete="email" required />
+              <button type="submit" class="btn btn--gold">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="/" class="footer__logo" style="display:block;"><img src="/images/logo-bg.png" alt="AKURE" style="height: 64px; width: auto; transform: scale(4); transform-origin: bottom center; margin-bottom: 3rem;" /></a>
+          <p class="footer__tagline">Created by nature, perfected by AKURE.<br />Premium natural products rooted in
+            farming.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Shop</div>
+          <ul class="footer__links">
+            <li><a href="/shop.html">All Products</a></li>
+            <li><a href="/shop.html?category=oils">Oils</a></li>
+            <li><a href="/shop.html?category=honey">Honey</a></li>
+            <li><a href="/shop.html?category=herbs">Herbs</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Company</div>
+          <ul class="footer__links">
+            <li><a href="/#farm-section">Our Story</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Support</div>
+          <ul class="footer__links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="footer-year">2026</span> AKURE. All rights reserved.</span>
+        <span>Made with 🌿 for the planet</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+
+</html>

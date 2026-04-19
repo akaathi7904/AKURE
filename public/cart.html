@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your AKURE cart — review your natural product selections before checkout." />
+  <title>Cart – AKURE</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <link rel="stylesheet" href="/css/global.css?v=1776093859185" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <script>window.__AKURE_ENV__ = { SUPABASE_URL: 'https://ldlxruqfqgvvclwwjfgh.supabase.co', SUPABASE_ANON: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkbHhydXFmcWd2dmNsd3dqZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzAzMDUsImV4cCI6MjA5MTYwNjMwNX0.iWLX17xU153PxozUAQ2ZpvfzCzrzSnrfOsCNYCm8-JY' };</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-logo">AKURE</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__logo" style="display:flex; align-items:center;"><img src="/images/logo-bg.png" alt="AKURE" style="height: 48px; width: auto; transform: scale(3.5); transform-origin: left center;" /></a>
+      <div class="navbar__links">
+        <a href="/">Home</a><a href="/shop.html">Shop</a><a href="/#farm-section">Our Story</a>
+      </div>
+      <div class="navbar__actions">
+        <a href="/login.html" id="nav-auth-link" style="font-size:0.82rem;font-weight:600;letter-spacing:0.04em;">Login</a>
+        <a href="/cart.html" class="navbar__cart-btn" aria-label="Cart">🛒<span class="cart-badge">0</span></a>
+        <button class="navbar__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar__mobile">
+    <a href="/">Home</a><a href="/shop.html">Shop</a>
+    <a href="/#farm-section">Our Story</a><a href="/login.html">Account</a><a href="/cart.html">🛒 Cart</a>
+  </div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="page-header mb-8">
+          <span class="section-label">Your Selections</span>
+          <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);">Your Cart</h1>
+        </div>
+
+        <div class="cart-layout" id="cart-layout">
+          <!-- Items Column -->
+          <div class="cart-items-col">
+            <div id="cart-items" aria-live="polite" aria-label="Cart items">
+              <!-- Populated by cart.js -->
+            </div>
+            <a href="/shop.html" class="btn btn--ghost mt-4">← Continue Shopping</a>
+          </div>
+
+          <!-- Summary Column -->
+          <div class="cart-summary-col">
+            <div class="order-summary" id="cart-summary">
+              <h3>Order Summary</h3>
+              <div class="order-summary__row">
+                <span>Subtotal</span>
+                <span id="summary-subtotal">₹0</span>
+              </div>
+              <div class="order-summary__row">
+                <span>Shipping</span>
+                <span id="summary-shipping">Free</span>
+              </div>
+              <div class="order-summary__row order-summary__row--total">
+                <span>Total</span>
+                <span id="summary-total">₹0</span>
+              </div>
+              <a href="/checkout.html" class="btn btn--primary btn--full mt-6" id="checkout-btn">Proceed to Checkout</a>
+              <p class="text-muted text-center mt-4" style="font-size:0.78rem;">Secure checkout. No card data stored.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty Cart -->
+        <div id="empty-cart" class="empty-state hidden">
+          <div class="empty-state__icon">🛒</div>
+          <h3>Your cart is empty</h3>
+          <p>Looks like you haven't added anything yet. Explore our collection!</p>
+          <a href="/shop.html" class="btn btn--primary mt-6">Shop Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none;padding-top:0;">
+        <a href="/" style="font-family:var(--font-heading);font-size:1.2rem;color:var(--color-cream);">AK<span style="color:var(--color-gold)">URE</span></a>
+        <span>© <span id="footer-year">2026</span> AKURE. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="/js/utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

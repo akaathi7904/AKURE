@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete your AKURE order — fill in your shipping details to finish checkout." />
+  <title>Checkout – AKURE</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <link rel="stylesheet" href="/css/global.css?v=1776093859185" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <script>window.__AKURE_ENV__ = { SUPABASE_URL: 'https://ldlxruqfqgvvclwwjfgh.supabase.co', SUPABASE_ANON: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkbHhydXFmcWd2dmNsd3dqZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzAzMDUsImV4cCI6MjA5MTYwNjMwNX0.iWLX17xU153PxozUAQ2ZpvfzCzrzSnrfOsCNYCm8-JY' };</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-logo">AKURE</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__logo" style="display:flex; align-items:center;"><img src="/images/logo-bg.png" alt="AKURE" style="height: 48px; width: auto; transform: scale(3.5); transform-origin: left center;" /></a>
+      <div class="navbar__links">
+        <a href="/">Home</a><a href="/shop.html">Shop</a>
+      </div>
+      <div class="navbar__actions">
+        <a href="/cart.html" class="navbar__cart-btn" aria-label="Cart">🛒<span class="cart-badge">0</span></a>
+        <button class="navbar__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar__mobile">
+    <a href="/">Home</a><a href="/shop.html">Shop</a><a href="/cart.html">🛒 Cart</a>
+  </div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="page-header mb-8">
+          <span class="section-label">Final Step</span>
+          <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);">Checkout</h1>
+        </div>
+
+        <div class="checkout-layout">
+          <!-- Shipping Form -->
+          <div class="checkout-form-col">
+            <div class="checkout-card">
+              <h3 class="checkout-section-title">Contact Information</h3>
+              <form id="checkout-form" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" class="form-control" placeholder="Priya Sharma" autocomplete="name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+91 98765 43210" autocomplete="tel" required />
+                  </div>
+                </div>
+                <div class="form-group mt-4">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" class="form-control" placeholder="you@example.com" autocomplete="email" required />
+                </div>
+
+                <h3 class="checkout-section-title mt-8">Shipping Address</h3>
+                <div class="form-group">
+                  <label for="address-line1">Address Line 1</label>
+                  <input type="text" id="address-line1" class="form-control" placeholder="123 Main Street, Apt 4B" autocomplete="address-line1" required />
+                </div>
+                <div class="form-group mt-4">
+                  <label for="address-line2">Address Line 2 (Optional)</label>
+                  <input type="text" id="address-line2" class="form-control" placeholder="Landmark, Near…" autocomplete="address-line2" />
+                </div>
+                <div class="form-row mt-4">
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" class="form-control" placeholder="Mumbai" autocomplete="address-level2" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" class="form-control" placeholder="Maharashtra" autocomplete="address-level1" required />
+                  </div>
+                </div>
+                <div class="form-row mt-4">
+                  <div class="form-group">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" class="form-control" placeholder="400001" autocomplete="postal-code" maxlength="6" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" class="form-control" value="India" autocomplete="country-name" required />
+                  </div>
+                </div>
+
+                <div id="form-error" class="form-error mt-4"></div>
+
+                <button type="submit" class="btn btn--primary btn--full btn--lg mt-8" id="place-order-btn">
+                  Place Order
+                </button>
+                <p class="text-muted text-center mt-4" style="font-size:0.78rem;">
+                  By placing your order you agree to our <a href="#" style="text-decoration:underline;">Terms &amp; Conditions</a>.
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="checkout-summary-col">
+            <div class="order-summary sticky-summary">
+              <h3>Order Summary</h3>
+              <div id="checkout-items" style="margin-bottom:var(--space-4);"></div>
+              <div class="order-summary__row">
+                <span>Subtotal</span>
+                <span id="co-subtotal">₹0</span>
+              </div>
+              <div class="order-summary__row">
+                <span>Shipping</span>
+                <span>Free</span>
+              </div>
+              <div class="order-summary__row order-summary__row--total">
+                <span>Total</span>
+                <span id="co-total">₹0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast-container"></div>
+  <script src="/js/utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>

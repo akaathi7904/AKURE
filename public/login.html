@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Login or create an AKURE account to track orders and enjoy exclusive benefits." />
+  <title>Account – AKURE</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <link rel="stylesheet" href="/css/global.css?v=1776093859185" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <script>window.__AKURE_ENV__ = { SUPABASE_URL: 'https://ldlxruqfqgvvclwwjfgh.supabase.co', SUPABASE_ANON: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkbHhydXFmcWd2dmNsd3dqZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzAzMDUsImV4cCI6MjA5MTYwNjMwNX0.iWLX17xU153PxozUAQ2ZpvfzCzrzSnrfOsCNYCm8-JY' };</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+
+<body class="auth-page">
+
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-logo">AKURE</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Simple top bar -->
+  <header class="auth-header">
+    <a href="/" class="navbar__logo" style="display:flex; align-items:center;"><img src="/images/logo-bg.png" alt="AKURE" style="height: 48px; width: auto; transform: scale(3.5); transform-origin: left center;" /></a>
+  </header>
+
+  <main class="auth-main">
+    <div class="auth-bg-pattern" aria-hidden="true"></div>
+
+    <div class="auth-card" role="main">
+      <div class="text-center mb-8">
+        <span class="section-label">Welcome</span>
+        <h2 style="margin-top:var(--space-2);">Your Account</h2>
+        <p style="margin-top:var(--space-2);font-size:0.875rem;">Premium natural products, delivered to your door.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab active" id="tab-login" role="tab" aria-selected="true"
+          aria-controls="panel-login">Login</button>
+        <button class="auth-tab" id="tab-register" role="tab" aria-selected="false"
+          aria-controls="panel-register">Register</button>
+      </div>
+
+      <!-- Login Panel -->
+      <div id="panel-login" role="tabpanel" aria-labelledby="tab-login">
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="you@example.com" autocomplete="email"
+              required />
+          </div>
+          <div class="form-group mt-4">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••"
+              autocomplete="current-password" required />
+          </div>
+          <div class="auth-form-footer mt-2">
+            <a href="#" id="forgot-link"
+              style="font-size:0.8rem;color:var(--color-text-muted);text-decoration:underline;">Forgot password?</a>
+          </div>
+          <div id="login-error" class="form-error mt-3"></div>
+          <button type="submit" class="btn btn--primary btn--full btn--lg mt-6" id="login-btn">Login</button>
+        </form>
+      </div>
+
+      <!-- Register Panel -->
+      <div id="panel-register" role="tabpanel" aria-labelledby="tab-register" class="hidden">
+        <form id="register-form" novalidate>
+          <div class="form-group">
+            <label for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="Priya Sharma" autocomplete="name"
+              required />
+          </div>
+          <div class="form-group mt-4">
+            <label for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="you@example.com" autocomplete="email"
+              required />
+          </div>
+          <div class="form-group mt-4">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="Min. 6 characters"
+              autocomplete="new-password" minlength="6" required />
+          </div>
+          <div id="register-error" class="form-error mt-3"></div>
+          <button type="submit" class="btn btn--primary btn--full btn--lg mt-6" id="register-btn">Create
+            Account</button>
+        </form>
+      </div>
+    </div>
+
+    <p class="auth-back">
+      <a href="/">← Back to AKURE</a>
+    </p>
+  </main>
+
+  <div id="toast-container"></div>
+  <script src="/js/utils.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+
+</html>
