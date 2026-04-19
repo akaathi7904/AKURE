@@ -72,7 +72,7 @@ async function register(email, password, fullName) {
 async function logout() {
   const client = getSupabaseClient();
   await client.auth.signOut();
-  window.location.href = '/login.html';
+  window.location.href = AKURE.pageUrl('login.html');
 }
 
 // Listen for auth state changes (called once per page)
@@ -86,7 +86,8 @@ function onAuthChange(callback) {
 async function requireAuth() {
   const session = await getSession();
   if (!session) {
-    window.location.href = '/login.html?redirect=' + encodeURIComponent(window.location.pathname);
+    const redirectTarget = `${window.location.pathname}${window.location.search}`;
+    window.location.href = `${AKURE.pageUrl('login.html')}?redirect=${encodeURIComponent(redirectTarget)}`;
   }
   return session;
 }
@@ -97,4 +98,3 @@ Object.assign(window.AKURE, {
   getSupabaseClient, getSession, getUser,
   login, register, logout, onAuthChange, requireAuth,
 });
-

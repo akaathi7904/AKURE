@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const id = AKURE.getUrlParam('id');
     if (!id) {
-      window.location.href = '/shop.html';
+      window.location.href = AKURE.pageUrl('shop.html');
       return;
     }
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (session && authLink) {
       if (session.user?.email === 'akure1612@gmail.com') {
         authLink.textContent = 'Admin Panel';
-        authLink.href = '/admin.html';
+        authLink.href = AKURE.pageUrl('admin.html');
       } else {
         authLink.textContent = 'My Account';
         authLink.href = '#';
@@ -46,7 +46,7 @@ async function loadProduct(id) {
     loadRelated(currentProduct.category, id);
   } catch (err) {
     document.getElementById('product-detail').innerHTML =
-      `<div class="empty-state"><div class="empty-state__icon">🌿</div><h3>Product not found</h3><p>This product may no longer be available.</p><a href="/shop.html" class="btn btn--primary mt-6">Browse Shop</a></div>`;
+      `<div class="empty-state"><div class="empty-state__icon">🌿</div><h3>Product not found</h3><p>This product may no longer be available.</p><a href="${AKURE.pageUrl('shop.html')}" class="btn btn--primary mt-6">Browse Shop</a></div>`;
   }
 }
 

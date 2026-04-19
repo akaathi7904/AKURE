@@ -6,6 +6,16 @@ A full-stack, production-ready e-commerce website built with Node.js/Express, Su
 
 ---
 
+## Live Demo
+
+GitHub repositories show source code, not a running website. This repo now includes a GitHub Pages workflow that publishes the storefront from `public/`.
+
+- Expected GitHub Pages URL: `https://akaathi7904.github.io/AKURE/`
+- GitHub Pages version: storefront demo with static product fallback
+- Full version: deploy the Express server for admin features and live API routes
+
+---
+
 ## Project Structure
 
 ```
@@ -207,7 +217,15 @@ Visit: **http://localhost:3000**
 
 ## Deployment
 
-### Option A: Node.js on a VPS (Ubuntu + PM2)
+### Option A: GitHub Pages Demo
+
+This repository includes `.github/workflows/deploy-pages.yml`, which publishes the `public/` folder to GitHub Pages on every push to `main`.
+
+- Demo URL pattern: `https://<username>.github.io/<repository>/`
+- For this repo: `https://akaathi7904.github.io/AKURE/`
+- This is a static storefront demo, not the full Express backend
+
+### Option B: Node.js on a VPS (Ubuntu + PM2)
 
 ```bash
 npm install -g pm2
@@ -217,14 +235,14 @@ pm2 save && pm2 startup
 
 Add an Nginx reverse proxy to port 3000 and use Certbot for HTTPS.
 
-### Option B: Railway / Render
+### Option C: Railway / Render
 
 1. Push to GitHub
 2. Connect repo in [Railway](https://railway.app) or [Render](https://render.com)
 3. Add environment variables in the platform dashboard
 4. Deploy — done.
 
-### Option C: Vercel (Static) + Separate API
+### Option D: Vercel (Static) + Separate API
 
 Not recommended for this setup as it requires a persistent Node.js server.
 

@@ -9,10 +9,10 @@
   <title>Product – AKURE</title>
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
-  <link rel="stylesheet" href="/css/global.css?v=1776093859185" />
-  <link rel="stylesheet" href="/css/components.css" />
-  <link rel="stylesheet" href="/css/product.css" />
-  <script>window.__AKURE_ENV__ = { SUPABASE_URL: 'https://ldlxruqfqgvvclwwjfgh.supabase.co', SUPABASE_ANON: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkbHhydXFmcWd2dmNsd3dqZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzAzMDUsImV4cCI6MjA5MTYwNjMwNX0.iWLX17xU153PxozUAQ2ZpvfzCzrzSnrfOsCNYCm8-JY' };</script>
+  <link rel="stylesheet" href="./css/global.css?v=1776093859185" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/product.css" />
+  <script src="./js/site-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 
@@ -25,29 +25,29 @@
 
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
-      <a href="/" class="navbar__logo" style="display:flex; align-items:center;"><img src="/images/logo-bg.png" alt="AKURE" style="height: 48px; width: auto; transform: scale(3.5); transform-origin: left center;" /></a>
+      <a href="./index.html" class="navbar__logo" style="display:flex; align-items:center;"><img src="./images/logo-bg.png" alt="AKURE" style="height: 48px; width: auto; transform: scale(3.5); transform-origin: left center;" /></a>
       <div class="navbar__links">
-        <a href="/">Home</a><a href="/shop.html">Shop</a><a href="/#farm-section">Our Story</a>
+        <a href="./index.html">Home</a><a href="./shop.html">Shop</a><a href="./index.html#farm-section">Our Story</a>
       </div>
       <div class="navbar__actions">
-        <a href="/login.html" id="nav-auth-link"
+        <a href="./login.html" id="nav-auth-link"
           style="font-size:0.82rem;font-weight:600;letter-spacing:0.04em;">Login</a>
-        <a href="/cart.html" class="navbar__cart-btn" aria-label="Cart">🛒<span class="cart-badge">0</span></a>
+        <a href="./cart.html" class="navbar__cart-btn" aria-label="Cart">🛒<span class="cart-badge">0</span></a>
         <button class="navbar__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
   <div class="navbar__mobile">
-    <a href="/">Home</a><a href="/shop.html">Shop</a>
-    <a href="/#farm-section">Our Story</a><a href="/login.html">Account</a><a href="/cart.html">🛒 Cart</a>
+    <a href="./index.html">Home</a><a href="./shop.html">Shop</a>
+    <a href="./index.html#farm-section">Our Story</a><a href="./login.html">Account</a><a href="./cart.html">🛒 Cart</a>
   </div>
 
   <main>
     <div class="container">
       <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> <span>›</span>
-        <a href="/shop.html">Shop</a> <span>›</span>
+        <a href="./index.html">Home</a> <span>›</span>
+        <a href="./shop.html">Shop</a> <span>›</span>
         <span id="breadcrumb-name" aria-current="page">Product</span>
       </nav>
 
@@ -76,17 +76,17 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__bottom" style="border-top:none;padding-top:0;">
-        <a href="/" class="footer__logo" style="display:block;"><img src="/images/logo-bg.png" alt="AKURE" style="height: 64px; width: auto; transform: scale(4); transform-origin: bottom center; margin-bottom: 3rem;" /></a>
+        <a href="./index.html" class="footer__logo" style="display:block;"><img src="./images/logo-bg.png" alt="AKURE" style="height: 64px; width: auto; transform: scale(4); transform-origin: bottom center; margin-bottom: 3rem;" /></a>
         <span>© <span id="footer-year">2026</span> AKURE. All rights reserved.</span>
       </div>
     </div>
   </footer>
 
   <div id="toast-container"></div>
-  <script src="/js/utils.js"></script>
-  <script src="/js/auth.js"></script>
-  <script src="/js/api.js"></script>
-  <script src="/js/product.js"></script>
+  <script src="./js/utils.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/product.js"></script>
 </body>
 
 </html>

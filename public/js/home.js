@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (session && authLink) {
       if (session.user?.email === 'akure1612@gmail.com') {
         authLink.textContent = 'Admin Panel';
-        authLink.href = '/admin.html';
+        authLink.href = AKURE.pageUrl('admin.html');
       } else {
         authLink.textContent = 'My Account';
         authLink.href = '#';
@@ -66,6 +66,7 @@ async function loadFeaturedProducts() {
 }
 
 function productCardHTML(product) {
+  const productUrl = AKURE.pageUrl(`product.html?id=${encodeURIComponent(product.id)}`);
   const img = product.images?.[0]
     ? `<img src="${product.images[0]}" alt="${escapeHtml(product.name)}" loading="lazy" />`
     : `<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:3rem;color:var(--color-text-muted);">🌿</div>`;
@@ -75,8 +76,8 @@ function productCardHTML(product) {
     : '';
 
   return `
-    <article class="product-card" onclick="window.location='/product.html?id=${product.id}'" role="button" tabindex="0"
-             onkeydown="if(event.key==='Enter')window.location='/product.html?id=${product.id}'"
+    <article class="product-card" onclick="window.location='${productUrl}'" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter')window.location='${productUrl}'"
              aria-label="${escapeHtml(product.name)}">
       <div class="product-card__img-wrap">
         ${badge}

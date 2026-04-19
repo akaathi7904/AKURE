@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Render cart summary
     const cart = AKURE.getCart();
     if (!cart.length) {
-      window.location.href = '/cart.html';
+      window.location.href = AKURE.pageUrl('cart.html');
       return;
     }
     renderCheckoutSummary(cart);
@@ -69,7 +69,7 @@ async function handleCheckout(e) {
   }
 
   const cart = AKURE.getCart();
-  if (!cart.length) { window.location.href = '/cart.html'; return; }
+  if (!cart.length) { window.location.href = AKURE.pageUrl('cart.html'); return; }
 
   btn.textContent = 'Placing Order…';
   btn.classList.add('btn--loading');
@@ -89,7 +89,7 @@ async function handleCheckout(e) {
       order_id: order.id,
       total: order.total,
     });
-    window.location.href = `/order-success.html?${params}`;
+    window.location.href = `${AKURE.pageUrl('order-success.html')}?${params}`;
   } catch (err) {
     btn.textContent = 'Place Order';
     btn.classList.remove('btn--loading');

@@ -4,17 +4,23 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
+    if (AKURE.isStaticDemo()) {
+      document.body.innerHTML = '<div style="max-width:680px;margin:12vh auto;padding:2rem;text-align:center;"><h2>Admin is not available on GitHub Pages</h2><p>The GitHub Pages version is a storefront demo only. Deploy the Express app to Render, Railway, or another Node host to use admin tools.</p><p><a href="./index.html" class="btn btn--primary">Back to Store</a></p></div>';
+      return;
+    }
+
     // 1. Authenticate and verify role (handled fully by backend)
     const session = await AKURE.getSession();
     if (!session) {
-      window.location.href = '/login.html?redirect=/admin.html';
+      const redirectTarget = AKURE.pageUrl('admin.html');
+      window.location.href = `${AKURE.pageUrl('login.html')}?redirect=${encodeURIComponent(redirectTarget)}`;
       return;
     }
 
     // Attempt to load stats as an auth check
     const isAuth = await checkAdminAccess(session.access_token);
     if (!isAuth) {
-      document.body.innerHTML = '<div style="text-align:center;margin-top:10vh;"><h2>Access Denied</h2><p>You must be an admin to view this page.</p><a href="/">Go Home</a></div>';
+      document.body.innerHTML = `<div style="text-align:center;margin-top:10vh;"><h2>Access Denied</h2><p>You must be an admin to view this page.</p><a href="${AKURE.pageUrl('index.html')}">Go Home</a></div>`;
       return;
     }
 

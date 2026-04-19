@@ -130,6 +130,31 @@ function getUrlParam(key) {
   return new URLSearchParams(window.location.search).get(key);
 }
 
+function getSiteBasePath() {
+  return String(window.__AKURE_ENV__?.SITE_BASE_PATH || '').replace(/\/+$/, '');
+}
+
+function pageUrl(path = '') {
+  const cleanPath = String(path).replace(/^\/+/, '');
+  const basePath = getSiteBasePath();
+  if (!cleanPath) return basePath ? `${basePath}/` : '/';
+  return basePath ? `${basePath}/${cleanPath}` : `/${cleanPath}`;
+}
+
+function absolutePageUrl(path = '') {
+  return new URL(pageUrl(path), window.location.origin).toString();
+}
+
+function isStaticDemo() {
+  return Boolean(window.__AKURE_ENV__?.STATIC_DEMO);
+}
+
+function normalizeUrl(url) {
+  const parsed = new URL(url, window.location.origin);
+  const normalizedPath = parsed.pathname.replace(/\/index\.html$/, '/');
+  return `${normalizedPath}${parsed.search}${parsed.hash}`;
+}
+
 // ── Navbar scroll + hamburger ─────────────────────────
 function initNavbar() {
   const nav = document.querySelector('.navbar');
@@ -152,7 +177,9 @@ function initNavbar() {
   // Highlight active link
   const links = nav.querySelectorAll('.navbar__links a, .navbar__mobile a');
   links.forEach((link) => {
-    if (link.href === window.location.href) link.classList.add('active');
+    if (normalizeUrl(link.href) === normalizeUrl(window.location.href)) {
+      link.classList.add('active');
+    }
   });
 
   updateCartBadge();
@@ -165,4 +192,5 @@ Object.assign(window.AKURE, {
   getCart, addToCart, removeFromCart, updateCartQty, clearCart,
   getCartCount, getCartTotal,
   hidePageLoader, formatCurrency, debounce, getUrlParam, initNavbar,
+  pageUrl, absolutePageUrl, isStaticDemo,
 });

@@ -31,15 +31,16 @@ function renderCart() {
 }
 
 function cartItemHTML(item) {
+  const productUrl = AKURE.pageUrl(`product.html?id=${encodeURIComponent(item.id)}`);
   const img = item.image
     ? `<img class="cart-item__img" src="${item.image}" alt="${escHtml(item.name)}" loading="lazy" />`
     : `<div class="cart-item__img" style="display:flex;align-items:center;justify-content:center;background:var(--color-cream);font-size:2rem;">🌿</div>`;
 
   return `
     <div class="cart-item" data-id="${item.id}">
-      <a href="/product.html?id=${item.id}">${img}</a>
+      <a href="${productUrl}">${img}</a>
       <div class="cart-item__details">
-        <a href="/product.html?id=${item.id}" class="cart-item__name">${escHtml(item.name)}</a>
+        <a href="${productUrl}" class="cart-item__name">${escHtml(item.name)}</a>
         <p class="cart-item__price">${AKURE.formatCurrency(item.price)} each</p>
       </div>
       <div class="cart-item__actions">

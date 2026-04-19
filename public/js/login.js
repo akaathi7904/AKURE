@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // If already logged in → redirect
   const session = await AKURE.getSession();
   if (session) {
-    const redirect = AKURE.getUrlParam('redirect') || '/';
+    const redirect = AKURE.getUrlParam('redirect') || AKURE.pageUrl('index.html');
     window.location.href = redirect;
     return;
   }
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
       await AKURE.login(email, password);
       AKURE.showToast('Welcome back! 🌿', 'success');
-      const redirect = AKURE.getUrlParam('redirect') || '/';
+      const redirect = AKURE.getUrlParam('redirect') || AKURE.pageUrl('index.html');
       setTimeout(() => window.location.href = redirect, 800);
     } catch (err) {
       errEl.textContent = err.message || 'Login failed. Check your credentials.';
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
       const client = AKURE.getSupabaseClient();
       const { error } = await client.auth.resetPasswordForEmail(email, {
-        redirectTo: window.location.origin + '/login.html',
+        redirectTo: AKURE.absolutePageUrl('login.html'),
       });
       if (error) throw error;
       AKURE.showToast('Password reset email sent! 📧', 'success');

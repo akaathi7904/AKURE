@@ -6,9 +6,9 @@
   <meta name="description" content="Your AKURE order has been placed successfully. Thank you for choosing nature's finest." />
   <title>Order Confirmed – AKURE</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
-  <link rel="stylesheet" href="/css/global.css?v=1776093859185" />
-  <link rel="stylesheet" href="/css/components.css" />
-  <script>window.__AKURE_ENV__ = { SUPABASE_URL: 'https://ldlxruqfqgvvclwwjfgh.supabase.co', SUPABASE_ANON: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkbHhydXFmcWd2dmNsd3dqZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzAzMDUsImV4cCI6MjA5MTYwNjMwNX0.iWLX17xU153PxozUAQ2ZpvfzCzrzSnrfOsCNYCm8-JY' };</script>
+  <link rel="stylesheet" href="./css/global.css?v=1776093859185" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <script src="./js/site-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 <body>
@@ -20,18 +20,18 @@
 
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
-      <a href="/" class="navbar__logo" style="display:flex; align-items:center;"><img src="/images/logo-bg.png" alt="AKURE" style="height: 48px; width: auto; transform: scale(3.5); transform-origin: left center;" /></a>
+      <a href="./index.html" class="navbar__logo" style="display:flex; align-items:center;"><img src="./images/logo-bg.png" alt="AKURE" style="height: 48px; width: auto; transform: scale(3.5); transform-origin: left center;" /></a>
       <div class="navbar__links">
-        <a href="/">Home</a><a href="/shop.html">Shop</a>
+        <a href="./index.html">Home</a><a href="./shop.html">Shop</a>
       </div>
       <div class="navbar__actions">
-        <a href="/cart.html" class="navbar__cart-btn" aria-label="Cart">🛒<span class="cart-badge">0</span></a>
+        <a href="./cart.html" class="navbar__cart-btn" aria-label="Cart">🛒<span class="cart-badge">0</span></a>
         <button class="navbar__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
   <div class="navbar__mobile">
-    <a href="/">Home</a><a href="/shop.html">Shop</a><a href="/cart.html">🛒 Cart</a>
+    <a href="./index.html">Home</a><a href="./shop.html">Shop</a><a href="./cart.html">🛒 Cart</a>
   </div>
 
   <main class="success-main">
@@ -61,8 +61,8 @@
         </div>
 
         <div class="success-actions">
-          <a href="/shop.html" class="btn btn--primary">Continue Shopping</a>
-          <a href="/" class="btn btn--outline">Back to Home</a>
+          <a href="./shop.html" class="btn btn--primary">Continue Shopping</a>
+          <a href="./index.html" class="btn btn--outline">Back to Home</a>
         </div>
 
         <p class="text-muted mt-8" style="font-size:0.82rem;">
@@ -73,8 +73,9 @@
   </main>
 
   <div id="toast-container"></div>
-  <script src="/js/utils.js"></script>
-  <script src="/js/auth.js"></script>
-  <script src="/js/order-success.js"></script>
+  <script src="./js/utils.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/order-success.js"></script>
 </body>
 </html>
+
